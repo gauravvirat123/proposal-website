@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #proposal-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #teddy-img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        #question {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        #buttons-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .option-btn {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #no-btn {
+            background-color: #ff7b7b;
+            color: #fff;
+        }
+
+        #yes-btn {
+            background-color: #70db70;
+            color: #fff;
+        }
+
+        /* Dancing teddy animation */
+        @keyframes dance {
+            0% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(10deg);
+            }
+            50% {
+                transform: rotate(0deg);
+            }
+            75% {
+                transform: rotate(-10deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        #dancing-teddy {
+            display: none;
+            width: 200px;
+            height: auto;
+            margin-top: 20px;
+            animation: dance 0.5s infinite;
+        }
+
+        #success-message {
+            display: none;
+            color: #70db70;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="proposal-container">
+    <img id="teddy-img" src="https://media.tenor.com/vmvaMX3F-3IAAAAj/hehehehe.gif" alt="Cute Teddy">
+    <p id="question">Will you marry me?</p>
+    <div id="buttons-container">
+        <button class="option-btn" id="no-btn" onclick="moveButton()">No</button>
+        <button class="option-btn" id="yes-btn" onclick="showDancingTeddy()">Yes</button>
+    </div>
+    <img id="dancing-teddy" src="https://media.tenor.com/LZUBjmbft7YAAAAj/bear-panda.gif" alt="Dancing Teddy">
+    <p id="success-message">Yay! Love you baby! 💍🎉</p>
+</div>
+
+<script>
+    function moveButton() {
+        var noButton = document.getElementById('no-btn');
+        noButton.style.position = 'absolute';
+        var xPos = Math.floor(Math.random() * window.innerWidth);
+        var yPos = Math.floor(Math.random() * window.innerHeight);
+        noButton.style.left = xPos + 'px';
+        noButton.style.top = yPos + 'px';
+    }
+
+    function showDancingTeddy() {
+        var dancingTeddy = document.getElementById('dancing-teddy');
+        dancingTeddy.style.display = 'block';
+
+        var successMessage = document.getElementById('success-message');
+        successMessage.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
